@@ -24,6 +24,7 @@ class LinkedList():
 
         self._size += 1
 
+
     def find(self, data):
         node = self._root
 
@@ -34,6 +35,18 @@ class LinkedList():
                 node = node.next
 
         return None
+
+    # TODO
+    # remove_node?
+
+    def remove(self, data):
+        node = self._root
+        while node.next:
+            if node.next.data == data:
+                node.next = node.next.next if node.next.next else None # ekhm.
+                self._size -= 1
+            node = node.next
+
 
     def __repr__(self):
         node = self._root
@@ -56,3 +69,6 @@ if __name__ == '__main__':
 
     node = linked_list.find(20)
     print('Data: {}, Next: {}'.format(node.data, node.next))
+
+    linked_list.remove(20)
+    print(linked_list)

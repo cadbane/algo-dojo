@@ -7,7 +7,6 @@ class LinkedList():
         self._size = 0
 
     # TODO
-    # add_after
     # add_before
     # add_at_the_end
     # add_at_the_beginning
@@ -24,6 +23,17 @@ class LinkedList():
 
         self._size += 1
 
+
+    def add_after(self, node, data):
+        new_node = Node(data)
+
+        this_node = self._root
+        while this_node.next:
+            if this_node == node:
+                new_node.next = this_node.next
+                this_node.next = new_node
+
+            this_node = this_node.next
 
     def find(self, data):
         node = self._root
@@ -70,5 +80,10 @@ if __name__ == '__main__':
     node = linked_list.find(20)
     print('Data: {}, Next: {}'.format(node.data, node.next))
 
+    linked_list.add_after(node, 25)
+    linked_list.add_after(Node(24), 26)
+    print(linked_list)
+
     linked_list.remove(20)
     print(linked_list)
+

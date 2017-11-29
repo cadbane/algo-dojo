@@ -32,8 +32,10 @@ class LinkedList():
             if this_node == node:
                 new_node.next = this_node.next
                 this_node.next = new_node
+                self._size += 1
 
             this_node = this_node.next
+
 
     def find(self, data):
         node = self._root

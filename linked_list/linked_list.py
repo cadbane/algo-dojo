@@ -8,8 +8,6 @@ class LinkedList():
 
     # TODO
     # add_before
-    # add_at_the_end
-    # add_at_the_beginning
 
     def add(self, data):
         new_node = Node(data)
@@ -34,6 +32,14 @@ class LinkedList():
                 self._size += 1
 
             this_node = this_node.next
+
+    def add_at_the_beggining(self, data):
+        new_node = Node(data)
+
+        new_node.next = self._root
+        self._root = new_node
+
+        self._size += 1
 
     def add_at_the_end(self, data):
         new_node = Node(data)
@@ -95,4 +101,7 @@ if __name__ == '__main__':
     print(linked_list)
 
     linked_list.add_at_the_end(120)
+    print(linked_list)
+
+    linked_list.add_at_the_beggining(200)
     print(linked_list)

@@ -23,7 +23,6 @@ class LinkedList():
 
         self._size += 1
 
-
     def add_after(self, node, data):
         new_node = Node(data)
 
@@ -36,6 +35,13 @@ class LinkedList():
 
             this_node = this_node.next
 
+    def add_at_the_end(self, data):
+        new_node = Node(data)
+
+        self._last.next = new_node
+        self._last = new_node
+
+        self._size += 1
 
     def find(self, data):
         node = self._root
@@ -58,7 +64,6 @@ class LinkedList():
                 node.next = node.next.next if node.next.next else None # ekhm.
                 self._size -= 1
             node = node.next
-
 
     def __repr__(self):
         node = self._root
@@ -89,3 +94,5 @@ if __name__ == '__main__':
     linked_list.remove(20)
     print(linked_list)
 
+    linked_list.add_at_the_end(120)
+    print(linked_list)
